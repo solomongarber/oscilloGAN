@@ -270,12 +270,18 @@ class OsCycleGANModel(BaseModel):
         self.set_requires_grad(self.netD, False)
         self.optimizer_E.zero_grad()
         self.optimizer_G.zero_grad()
+        if self.use_G2:
+            self.optimizer_G2.zero_grad()
         self.backward_EG()
         self.optimizer_G.step()
+        if self.use_G2:
+            self.optimizer_G2.step()
         self.optimizer_E.step()
         # update G only
         if self.opt.lambda_z > 0.0:
             self.optimizer_G.zero_grad()
+            if self.use_G2:
+                self.optimizer_G2.zero_grad()
             self.optimizer_E.zero_grad()
             self.backward_G_alone()
             self.optimizer_G.step()

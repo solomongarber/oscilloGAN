@@ -16,14 +16,14 @@ def tensor2im(input_image, imtype=np.uint8, ends=[-1,1]):
     image_numpy = image_tensor[0].cpu().float().numpy()
     #print (image_numpy.shape)
     if len(image_numpy.shape)==1:
-        print('one')
-        print(image_numpy)
+        #print('one')
+        #print(image_numpy)
         image_numpy=plotpts(image_numpy)
     elif len(image_numpy.shape)==3:
         if image_numpy.shape[2]==image_numpy.shape[1] and image_numpy.shape[1]==1:
-            print('two')
+            #print('two')
             #print(image_numpy[:,0,0])
-            print("two_two")
+            #print("two_two")
             #iprint(image_numpy)
             image_numpy=plotpts(image_numpy[:,0,0])
     if image_numpy.shape[0] == 1:
@@ -73,8 +73,8 @@ def diagnose_network(net, name='network'):
             count += 1
     if count > 0:
         mean = mean / count
-    print(name)
-    print(mean)
+    #print(name)
+    #print(mean)
 
 
 def interp_z(z0, z1, num_frames, interp_mode='linear'):

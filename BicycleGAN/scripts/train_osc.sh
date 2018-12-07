@@ -76,7 +76,7 @@ esac
 # command
 CUDA_VISIBLE_DEVICES=${GPU_ID} python ./train.py \
   --display_id ${DISPLAY_ID} \
-  --dataroot /home/solomon/im2im/BicycleGAN/datasets/${CLASS} \
+  --dataroot /media/hdd/solomon/${CLASS} \
   --dataset_mode freq\
   --output_nc 4\
   --name ${NAME} \

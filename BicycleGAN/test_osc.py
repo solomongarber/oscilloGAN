@@ -38,7 +38,7 @@ for i, data in enumerate(islice(dataset, opt.how_many)):
     for nn in range(opt.n_samples + 1):
         encode = nn == 0 and not opt.no_encode
         real_A, fake_B, real_B = model.test(z_samples[[nn]], encode=encode)
-        print (fake_B.shape)
+        #print (fake_B.shape)
         real_B_xr=real_B[:,0,:,:]
         real_B_xi=real_B[:,1,:,:]
         real_B_yr=real_B[:,2,:,:]
